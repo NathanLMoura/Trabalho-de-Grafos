@@ -57,7 +57,7 @@ namespace Trabalho_de_Grafos.Classes.GrafoMA
             int contGrau = 0;
             for (int c = 0; c < qtVertices; c++)
             {
-                contGrau += MA[c, vertice];
+                contGrau += MA[vertice, c];
             }
             return contGrau;
         }
