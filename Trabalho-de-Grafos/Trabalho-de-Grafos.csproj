@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Classes\GrafoLA\GrafoLA.cs" />
     <Compile Include="Classes\GrafoMA\GrafoMA.cs" />
+    <Compile Include="Classes\Menu\Menu.cs" />
     <Compile Include="Interfaces\IGrafo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
