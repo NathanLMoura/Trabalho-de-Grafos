@@ -32,7 +32,7 @@ namespace Trabalho_de_Grafos.Classes.GrafoMA
 
         public bool InserirAresta(int v1, int v2)
         {
-            if (v1 < qtVertices && (v2 < qtVertices))
+            if (v1 < qtVertices && (v2 < qtVertices) && MA[v1, v2] == 0 && v1 != v2)
             {
                 MA[v1, v2] = 1;
                 MA[v2, v1] = 1;
@@ -43,7 +43,7 @@ namespace Trabalho_de_Grafos.Classes.GrafoMA
 
         public bool RemoverAresta(int v1, int v2)
         {
-            if (v1 < qtVertices && (v2 < qtVertices))
+            if (v1 < qtVertices && (v2 < qtVertices) && MA[v1, v2] == 1 && v1 != v2)
             {
                 MA[v1, v2] = 0;
                 MA[v2, v1] = 0;
@@ -123,6 +123,21 @@ namespace Trabalho_de_Grafos.Classes.GrafoMA
                     }
                 }
             }
+
+            Console.Write("Sequencia de Graus: ");
+            for(int c = 0; c < qtVertices; c++)
+            {
+                if (c < qtVertices - 1)
+                {
+                    Console.Write(sequenciaGraus[c] + ", ");
+                }
+                else
+                {
+                    Console.Write(sequenciaGraus[c]);
+
+                }
+            }
+            Console.Write("\n");
         }
 
         public void VerticesAdjacentes(int vertice)
@@ -133,6 +148,8 @@ namespace Trabalho_de_Grafos.Classes.GrafoMA
                 if (MA[vertice, c] == 1)
                     Console.Write(" " + c + ",");
             }
+
+            Console.Write("\b \n");
         }
 
         public bool Isolado(int vertice)
@@ -154,7 +171,7 @@ namespace Trabalho_de_Grafos.Classes.GrafoMA
 
         public bool Par(int vertice)
         {
-            if (Grau(vertice) % 2 == 0)
+            if (Grau(vertice) % 2 == 0 &&Grau(vertice)!=0)
                 return true;
             return false;
         }
@@ -170,10 +187,16 @@ namespace Trabalho_de_Grafos.Classes.GrafoMA
         {
             for(int i = 0; i < qtVertices; i++)
             {
-                Console.Write(i + ":");
                 for (int j = 0; j < qtVertices; j++)
                 {
-                    Console.Write(" " + MA[i, j] + ",");
+                    if (j < qtVertices - 1)
+                    {
+                        Console.Write(" " + MA[i, j] + " ");
+                    }
+                    else
+                    {
+                        Console.Write(" " + MA[i, j]);
+                    }
                 }
                 Console.Write("\n");
             }
@@ -183,7 +206,6 @@ namespace Trabalho_de_Grafos.Classes.GrafoMA
             for(int c = 0; c < qtVertices; c++)
             {
                 VerticesAdjacentes(c);
-                Console.Write("\n");
             }
         }
     }
