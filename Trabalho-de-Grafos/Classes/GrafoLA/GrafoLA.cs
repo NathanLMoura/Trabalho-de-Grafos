@@ -131,5 +131,39 @@ namespace Trabalho_de_Grafos.Classes.GrafoLA
         {
             return LA[v1].Exists(c=> c==v2) && LA[v2].Exists(c=> c==v1);
         }
+
+        public void ShowMA()
+        {
+            
+            var mat = new int[LA.Count, LA.Count];
+            for (int i = 0; i < LA.Count; i++)
+            {
+                for (int j = 0; j < LA.Count; j++)
+                {
+                    if (j < mat.GetLength(1) - 1)
+                    {
+                        Console.Write(LA[i].Exists(c => c == j)?" 1 ":" 0 ");
+                    }
+                    else
+                    {
+                        Console.Write(LA[i].Exists(c => c == j) ? " 1" : " 0");
+                    }
+                }
+                Console.Write("\n");
+            }
+        }
+
+        public void ShowLA()
+        {
+            for (int i = 0; i < LA.Count; i++)
+            {
+                Console.Write(i+":");
+                foreach (var vertices in LA[i])
+                {
+                    Console.Write(vertices);
+                }
+                Console.Write("\n");
+            }
+        }
     }
 }

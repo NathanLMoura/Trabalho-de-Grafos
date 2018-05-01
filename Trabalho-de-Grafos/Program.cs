@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Trabalho_de_Grafos.Classes.GrafoLA;
 using Trabalho_de_Grafos.Classes.Menu;
 using Trabalho_de_Grafos.Classes.GrafoMA;
 
@@ -15,6 +16,7 @@ namespace Trabalho_de_Grafos
             int op, op2;
             Menu menu = new Menu();
             GrafoMA grafoMA= new GrafoMA(0);
+            GrafoLA grafoLa;
             bool grafoMAInstanciado = false;
             do
             {
@@ -214,87 +216,157 @@ namespace Trabalho_de_Grafos
                     {
                         Console.Clear();
                         menu.MenuGrafoLA();
+                        grafoLa = new GrafoLA();
                         op2 = int.Parse(Console.ReadLine());
                     } while (op2 < 0 || op2 > 16);
 
                     if (op2 == 1)
                     {
-
+                        Console.WriteLine(grafoLa.Ordem());
                     }
                     else
                     if(op2 == 2)
                     {
-
+                        Console.Write("Digite o numero do vértice deseja inserir: ");
+                        if (!grafoLa.InserirVertice(int.Parse(Console.ReadLine())))
+                            Console.WriteLine("Vertice ja existe");
+                        else
+                            Console.WriteLine("Inserido com sucesso");
                     }
                     else
                     if (op2 == 3)
                     {
-
+                        Console.Write("Digite o numero do vértice deseja remover: ");
+                        if (!grafoLa.RemoverVertice(int.Parse(Console.ReadLine())))
+                            Console.WriteLine("Vertice ja existe");
+                        else
+                            Console.WriteLine("Removido com sucesso");
                     }
                     else
                     if (op2 == 4)
                     {
-
+                        Console.Write("Digite o numero do primeiro vértice da aresta: ");
+                        var primeiro = int.Parse(Console.ReadLine());
+                        Console.Write("Digite o numero do segundo vértice da aresta: ");
+                        var segundo = int.Parse(Console.ReadLine());
+                        if (!grafoLa.InserirAresta(primeiro, segundo))
+                            Console.WriteLine("Aresta ja existe");
+                        else
+                            Console.WriteLine("Inserido com sucesso");
                     }
                     else
                     if (op2 == 5)
                     {
-
+                        Console.Write("Digite o numero do primeiro vértice da aresta: ");
+                        var primeiro = int.Parse(Console.ReadLine());
+                        Console.Write("Digite o numero do segundo vértice da aresta: ");
+                        var segundo = int.Parse(Console.ReadLine());
+                        if (!grafoLa.RemoverAresta(primeiro, segundo))
+                            Console.WriteLine("Aresta ja existe");
+                        else
+                            Console.WriteLine("Removido com sucesso");
                     }
                     else
                     if (op2 == 6)
                     {
-
+                        Console.Write("Digite o numero vértice: ");
+                        Console.WriteLine($"O grau do vertice é {grafoLa.Grau(int.Parse(Console.ReadLine()))}");
                     }
                     else
                     if (op2 == 7)
                     {
-
+                        if (grafoLa.Completo())
+                        {
+                            Console.Write("O grafo é completo ");
+                        }
+                        else
+                        {
+                            Console.Write("O grafo não é completo");
+                        }
                     }
                     else
                     if (op2 == 8)
                     {
-
+                        if (grafoLa.Regular())
+                        {
+                            Console.Write("O grafo é regular ");
+                        }
+                        else
+                        {
+                            Console.Write("O grafo não é regular");
+                        }
                     }
                     else
                     if (op2 == 9)
                     {
-
+                        grafoLa.ShowMA();
                     }
                     else
                     if (op2 == 10)
                     {
-
+                        grafoLa.ShowMA();
                     }
                     else
                     if (op2 == 11)
                     {
-
+                        grafoLa.SequenciaGraus();
                     }
                     else
                     if (op2 == 12)
                     {
-
+                        Console.Write("Digite o numero vértice: ");
+                        grafoLa.VerticesAdjacentes(int.Parse(Console.ReadLine()));
                     }
                     else
                     if (op2 == 13)
                     {
-
+                        Console.Write("Digite o numero vértice: ");
+                        if (grafoLa.Isolado(int.Parse(Console.ReadLine())))
+                        {
+                            Console.Write("O vertice é isolado ");
+                        }
+                        else
+                        {
+                            Console.Write("O vertice não é isolado");
+                        }
                     }
                     else
                     if (op2 == 14)
                     {
-
+                        Console.Write("Digite o numero vértice: ");
+                        if (grafoLa.Impar(int.Parse(Console.ReadLine())))
+                        {
+                            Console.Write("O vertice é impar ");
+                        }
+                        else
+                        {
+                            Console.Write("O vertice não é impar");
+                        }
                     }
                     else
                     if (op2 == 15)
                     {
-
+                        Console.Write("Digite o numero vértice: ");
+                        if (grafoLa.Par(int.Parse(Console.ReadLine())))
+                        {
+                            Console.Write("O vertice é par ");
+                        }
+                        else
+                        {
+                            Console.Write("O vertice não é par");
+                        }
                     }
                     else
                     if (op2 == 16)
                     {
-
+                        Console.Write("Digite o numero do primeiro vértice");
+                        var primeiro = int.Parse(Console.ReadLine());
+                        Console.Write("Digite o numero do segundo vértice");
+                        var segundo = int.Parse(Console.ReadLine());
+                        if (grafoLa.Adjacentes(primeiro, segundo))
+                            Console.WriteLine("São adjacentes");
+                        else
+                            Console.WriteLine("Não são adjacentes");
                     }
 
                 }
