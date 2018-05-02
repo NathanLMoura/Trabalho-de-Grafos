@@ -44,7 +44,7 @@ namespace Trabalho_de_Grafos.Classes.GrafoLA
 
         public bool InserirAresta(int v1, int v2)
         {
-            if (LA[v1].Exists( c => c == v2) && LA[v2].Exists(c=> c ==v1))
+            if (!LA[v1].Contains(v2) && !LA[v2].Contains(v1))
             {
                 LA[v1].Add(v2);
                 LA[v2].Add(v1);
@@ -58,8 +58,8 @@ namespace Trabalho_de_Grafos.Classes.GrafoLA
         {
             if (LA[v1].Exists(c => c == v2) && LA[v2].Exists(c => c == v1))
             {
-                LA[v1].RemoveAt(v2);
-                LA[v2].RemoveAt(v1);
+                LA[v1].Remove(v2);
+                LA[v2].Remove(v1);
                 return true;
             }
 
@@ -79,7 +79,7 @@ namespace Trabalho_de_Grafos.Classes.GrafoLA
                 quantidadeArestas += vertices.Count;
             }
 
-            return ((LA.Count * (LA.Count - 1)) / 2) == quantidadeArestas;
+            return ((LA.Count * (LA.Count - 1)) / 2) == quantidadeArestas/2;
         }
 
         public bool Regular()

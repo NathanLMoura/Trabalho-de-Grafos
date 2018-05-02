@@ -16,7 +16,7 @@ namespace Trabalho_de_Grafos
             int op, op2;
             Menu menu = new Menu();
             GrafoMA grafoMA= new GrafoMA(0);
-            GrafoLA grafoLa;
+            GrafoLA grafoLa=new GrafoLA();
             bool grafoMAInstanciado = false;
             do
             {
@@ -216,7 +216,6 @@ namespace Trabalho_de_Grafos
                     {
                         Console.Clear();
                         menu.MenuGrafoLA();
-                        grafoLa = new GrafoLA();
                         op2 = int.Parse(Console.ReadLine());
                     } while (op2 < 0 || op2 > 16);
 
@@ -304,7 +303,7 @@ namespace Trabalho_de_Grafos
                     else
                     if (op2 == 10)
                     {
-                        grafoLa.ShowMA();
+                        grafoLa.ShowLA();
                     }
                     else
                     if (op2 == 11)
