@@ -22,7 +22,7 @@ namespace Trabalho_de_Grafos.Classes.GrafoLA
 
         public bool InserirVertice(int vertice)
         {
-            if (vertice> LA.Count)
+            if (vertice> LA.Count-1)
             {
                 LA.Add(new List<int>());
                 return true;

@@ -200,7 +200,7 @@ namespace Trabalho_de_Grafos
                         v1 = int.Parse(Console.ReadLine());
                         Console.Write("Digite o segundo vértice que deseja verificar: ");
                         v2 = int.Parse(Console.ReadLine());
-                        if (grafoMA.InserirAresta(v1, v2))
+                        if (grafoMA.Adjacentes(v1, v2))
                             Console.WriteLine("Vértices são adjacentes");
                         else
                             Console.WriteLine("Vértices não são adjacentes");
@@ -261,7 +261,7 @@ namespace Trabalho_de_Grafos
                         Console.Write("Digite o numero do segundo vértice da aresta: ");
                         var segundo = int.Parse(Console.ReadLine());
                         if (!grafoLa.RemoverAresta(primeiro, segundo))
-                            Console.WriteLine("Aresta ja existe");
+                            Console.WriteLine("Aresta não existe");
                         else
                             Console.WriteLine("Removido com sucesso");
                     }
