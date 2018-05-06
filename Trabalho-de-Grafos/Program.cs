@@ -276,11 +276,11 @@ namespace Trabalho_de_Grafos
                     {
                         if (grafoLa.Completo())
                         {
-                            Console.Write("O grafo é completo ");
+                            Console.Write("\nO grafo é completo ");
                         }
                         else
                         {
-                            Console.Write("O grafo não é completo");
+                            Console.Write("\nO grafo não é completo");
                         }
                     }
                     else
@@ -288,11 +288,11 @@ namespace Trabalho_de_Grafos
                     {
                         if (grafoLa.Regular())
                         {
-                            Console.Write("O grafo é regular ");
+                            Console.Write("\nO grafo é regular ");
                         }
                         else
                         {
-                            Console.Write("O grafo não é regular");
+                            Console.Write("\nO grafo não é regular");
                         }
                     }
                     else

@@ -100,7 +100,7 @@ namespace Trabalho_de_Grafos.Classes.GrafoLA
         {
             for (int i = 0; i < LA.Count; i++)
             {
-                Console.WriteLine(Grau(i));
+                Console.Write(Grau(i) + " ");
             }
         }
 
@@ -108,7 +108,7 @@ namespace Trabalho_de_Grafos.Classes.GrafoLA
         {
             foreach (var vertices in LA[vertice])
             {
-                Console.WriteLine(vertices);
+                Console.Write(vertices + " ");
             }
         }
 
@@ -160,7 +160,7 @@ namespace Trabalho_de_Grafos.Classes.GrafoLA
                 Console.Write(i+":");
                 foreach (var vertices in LA[i])
                 {
-                    Console.Write(vertices);
+                    Console.Write(vertices+" ");
                 }
                 Console.Write("\n");
             }
